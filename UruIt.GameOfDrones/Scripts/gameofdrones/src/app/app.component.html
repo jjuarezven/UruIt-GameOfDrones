@@ -1,0 +1,56 @@
+<section *ngIf="showPlayersRegistration">
+  <h1>Enter player's name</h1>
+  <label for="txtPlayer1">Player 1 </label>
+  <input type="text" name="txtPlayer1" value="" [(ngModel)]="namePlayer1" />
+  <br />
+  <label for="txtPlayer1">Player 2 </label>
+  <input type="text" name="txtPlayer2" value="" [(ngModel)]="namePlayer2" />
+  <br />
+  <button type="button" (click)="startGame();">Start</button>
+</section>
+
+<section *ngIf="!showPlayersRegistration">
+  <h1>Round {{round}}</h1>
+  <h2>Select your movement</h2>
+
+  <div *ngIf="!player1Played">
+    <h2>{{namePlayer1}}</h2>
+    <select [(ngModel)]="movementPlayer1">
+      <option [value]="null"></option>
+      <option *ngFor="let movement of movements" [value]="movement.Value">{{movement.Name}}</option>
+    </select>
+    <button type="button" (click)="processMovement();" [disabled]="movementPlayer1 === null">Ok</button>
+  </div>
+
+  <div *ngIf="player1Played">
+    <h2>{{namePlayer2}}</h2>
+    <select [(ngModel)]="movementPlayer2">
+      <option [value]="null"></option>
+      <option *ngFor="let movement of movements" [value]="movement.Value">{{movement.Name}}</option>
+    </select>
+    <button type="button" (click)="processMovement();" [disabled]="movementPlayer1 === null">Ok</button>
+  </div>
+</section>
+
+<section *ngIf="rounds.length > 0">
+  <table class="table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Round</th>
+        <th>Winner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let round of rounds">
+        <td>{{round.Round}}</td>
+        <td>{{round.PlayerName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section *ngIf="winner">
+  <h1>We have a winner!</h1>
+  <h1>{{winner}} is the new EMPEROR!!</h1>
+  <button type="button" (click)="initializeGame();">Play Again</button>
+</section>

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones", "UruIt.GameOfDrones\UruIt.GameOfDrones.csproj", "{F922AE9A-3BFB-4DB9-81F0-4352FF5EFE43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.UI", "UruIt.GameOfDrones\UruIt.GameOfDrones.UI.csproj", "{F922AE9A-3BFB-4DB9-81F0-4352FF5EFE43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Models", "UruIt.GameOfDrones.Models\UruIt.GameOfDrones.Models.csproj", "{57C1FE72-436C-483A-B9B6-B88C2AF81CE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Persistence", "UruIt.GameOfDrones.Persistence\UruIt.GameOfDrones.Persistence.csproj", "{389754C3-FCA2-4E8E-95EF-EF4D95F52589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Services", "UruIt.GameOfDrones.Services\UruIt.GameOfDrones.Services.csproj", "{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{F922AE9A-3BFB-4DB9-81F0-4352FF5EFE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F922AE9A-3BFB-4DB9-81F0-4352FF5EFE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F922AE9A-3BFB-4DB9-81F0-4352FF5EFE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C1FE72-436C-483A-B9B6-B88C2AF81CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C1FE72-436C-483A-B9B6-B88C2AF81CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C1FE72-436C-483A-B9B6-B88C2AF81CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C1FE72-436C-483A-B9B6-B88C2AF81CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
