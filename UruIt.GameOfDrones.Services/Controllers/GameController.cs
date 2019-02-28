@@ -1,38 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using UruIt.GameOfDrones.Services.Services_Interfaces;
 
 namespace UruIt.GameOfDrones.Services.Controllers
 {
 	public class GameController : ApiController
 	{
-		// GET api/values
-		public IEnumerable<string> Get()
+		public GameController()
 		{
-			return new string[] { "value1", "value2" };
+
 		}
 
-		// GET api/values/5
-		public string Get(int id)
+		private readonly IStatisticService StatisticService;
+
+		public GameController(IStatisticService statisticService)
 		{
-			return "value";
+			StatisticService = statisticService;
+		}
+		
+		[HttpGet]
+		public IHttpActionResult Get()
+		{
+			try
+			{
+				var statistics = StatisticService.GetAll();
+				return Ok(statistics);
+			}
+			catch (Exception)
+			{
+				return NotFound();
+			}			
 		}
 
 		// POST api/values
 		public void Post([FromBody]string value)
-		{
-		}
-
-		// PUT api/values/5
-		public void Put(int id, [FromBody]string value)
-		{
-		}
-
-		// DELETE api/values/5
-		public void Delete(int id)
 		{
 		}
 	}

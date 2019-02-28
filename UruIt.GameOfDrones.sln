@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Models",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Persistence", "UruIt.GameOfDrones.Persistence\UruIt.GameOfDrones.Persistence.csproj", "{389754C3-FCA2-4E8E-95EF-EF4D95F52589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruIt.GameOfDrones.Services", "UruIt.GameOfDrones.Services\UruIt.GameOfDrones.Services.csproj", "{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389754C3-FCA2-4E8E-95EF-EF4D95F52589}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B8FEA5A-F1DE-4B4F-92B9-D941BA867458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

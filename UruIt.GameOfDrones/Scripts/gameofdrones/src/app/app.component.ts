@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Movement } from './shared/models/movement';
 import { Statistic } from './shared/models/statistic';
 import { Round } from './shared/models/Round';
+import { StatisticService } from './shared/services/statistic.service';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +28,8 @@ export class AppComponent {
   // theResult -  0 winner
   //              1 lose
   //              2 tie
-  theResult = 0
-  constructor() {
+  theResult = 0;
+  constructor(private statisticService: StatisticService) {
     this.initializeGame();
   }
 
@@ -49,6 +50,7 @@ export class AppComponent {
   }
 
   startGame() {
+    this.getStatistic();
     this.showPlayersRegistration = false;
   }
 
@@ -97,5 +99,36 @@ export class AppComponent {
 
   evaluateEmperor() {
     this.winner = this.scores[0] === 3 ? this.namePlayer1 : this.namePlayer2;
+  }
+
+  async getStatistic() {
+    const promise = new Promise((resolve, reject) => {
+      this.statisticService.getStatistics()
+        .toPromise()
+        .then(
+          res => { // Success
+            const data = res;
+            if (data) {
+              //this.statistics = data;
+            }
+            resolve();
+          },
+          err => {
+            console.error(err);
+            //reject(err);
+            resolve();
+          }
+        );
+    });
+    await promise;
+    //if (this.city) {
+      //const country = this.countries.filter(x => x.ID === this.city.Country.ID)[0];
+      //this.weatherForm.patchValue({
+      //  searchGroup: {
+      //    country: country,
+      //    city: this.city.EnglishName
+      //  }
+      //});
+    //}
   }
 }

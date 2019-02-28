@@ -53,6 +53,10 @@
     <Compile Include="GameOfDronesContext.cs" />
     <Compile Include="GameOfDronesInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository Implementations\EfGenericRepository.cs" />
+    <Compile Include="Repository Implementations\EfUnitOfWork.cs" />
+    <Compile Include="Repository Interfaces\IGenericRepository.cs" />
+    <Compile Include="Repository Interfaces\IUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UruIt.GameOfDrones.Models\UruIt.GameOfDrones.Models.csproj">
