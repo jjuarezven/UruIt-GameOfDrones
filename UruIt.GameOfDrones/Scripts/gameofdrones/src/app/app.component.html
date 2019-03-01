@@ -53,9 +53,10 @@
   <h1>We have a winner!</h1>
   <h1>{{winner}} is the new EMPEROR!!</h1>
   <button type="button" (click)="initializeGame();">Play Again</button>
+  <button type="button" (click)="viewStatistics();">Play Again</button>
 </section>
 
-<section>
+<div *ngIf="viewStatistics">
   <table class="table-hover table-striped">
     <thead>
       <tr>
@@ -64,10 +65,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let round of rounds">
-        <td>{{round.Round}}</td>
-        <td>{{round.PlayerName}}</td>
+      <tr *ngFor="let s of statistics">
+        <td>{{s.PlayerName}}</td>
+        <td>{{s.WonGames}}</td>
       </tr>
     </tbody>
   </table>
-</section>
+</div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using UruIt.GameOfDrones.Persistence.Repository_Interfaces;
@@ -54,6 +55,11 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Implementations
 		public void Add(T entity)
 		{
 			dbSet.Add(entity);
+		}
+
+		public void AddOrUpdate(T entity)
+		{
+			dbSet.AddOrUpdate(entity);
 		}
 
 		public void Delete(T entity)

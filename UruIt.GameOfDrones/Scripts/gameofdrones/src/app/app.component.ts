@@ -12,7 +12,7 @@ import { StatisticService } from './shared/services/statistic.service';
 })
 export class AppComponent {
   title: string;
-  scores: number[]; // store the scores. index 0 is player 1. index 1 is player 2.
+  scores: number[];
   namePlayer1: string;
   namePlayer2: string;
   movementPlayer1: number;
@@ -21,6 +21,7 @@ export class AppComponent {
   isResultShow: boolean;
   showPlayersRegistration: boolean;
   player1Played: boolean;
+  viewStatistic: boolean;
   movements: Array<Movement> = [{ Name: 'Rock', Value: 0 }, { Name: 'Paper', Value: 1 }, { Name: 'Scissor ', Value: 2 }];
   statistics: Array<Statistic>;
   rounds: Array<Round>;
@@ -29,6 +30,8 @@ export class AppComponent {
   //              1 lose
   //              2 tie
   theResult = 0;
+
+  countries = [];
   constructor(private statisticService: StatisticService) {
     this.initializeGame();
   }
@@ -49,8 +52,8 @@ export class AppComponent {
     this.winner = '';
   }
 
-  startGame() {
-    this.getStatistic();
+  async startGame() {
+    await this.getStatistics();
     this.showPlayersRegistration = false;
   }
 
@@ -84,13 +87,11 @@ export class AppComponent {
         this.theResult = 1;
         this.scores[1] = this.scores[1] + 1;
         this.rounds.push({ PlayerName: this.namePlayer2, Round: this.round });
-        //this.statistics[1].WonRound++;
       }
       this.movementPlayer1 = null;
       this.movementPlayer2 = null;
       this.player1Played = false;
       this.round++;
-      //if (this.statistics[0].WonRound === 3 || this.statistics[1].WonRound === 3) {
       if (this.scores[0] === 3 || this.scores[1] === 3) {
         this.evaluateEmperor();
       }
@@ -99,36 +100,29 @@ export class AppComponent {
 
   evaluateEmperor() {
     this.winner = this.scores[0] === 3 ? this.namePlayer1 : this.namePlayer2;
+    this.statisticService.saveStatistic(this.winner).subscribe(data => console.log("Succeeded, result = " + data), (err) => console.error("Failed! " + err));
   }
 
-  async getStatistic() {
+  async getStatistics() {
     const promise = new Promise((resolve, reject) => {
       this.statisticService.getStatistics()
         .toPromise()
         .then(
-          res => { // Success
-            const data = res;
-            if (data) {
-              //this.statistics = data;
-            }
+          res => {
+            this.statistics = res;
             resolve();
           },
           err => {
             console.error(err);
-            //reject(err);
-            resolve();
+            reject(err);
           }
         );
     });
     await promise;
-    //if (this.city) {
-      //const country = this.countries.filter(x => x.ID === this.city.Country.ID)[0];
-      //this.weatherForm.patchValue({
-      //  searchGroup: {
-      //    country: country,
-      //    city: this.city.EnglishName
-      //  }
-      //});
-    //}
+  }
+
+  viewStatistics() {
+    this.viewStatistic = true;
+    //this.statisticService.saveStatistic('Ron').subscribe(data => console.log("Succeeded, result = " + data), (err) => console.error("Failed! " + err));
   }
 }

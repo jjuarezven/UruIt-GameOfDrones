@@ -17,6 +17,7 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Interfaces
 		T GetById(int id);
 
 		void Add(T entity);
+		void AddOrUpdate(T entity);
 		void Delete(T entity);
 		void Attach(T entity);
 	}

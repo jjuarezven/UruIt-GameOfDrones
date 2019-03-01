@@ -8,12 +8,10 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Implementations
 	public class EfUnitOfWork : IUnitOfWork, IDisposable
 	{
 		private bool disposed = false;
-
-		public GameOfDronesContext context;
 		private readonly EfGenericRepository<Statistic> StatisticRepo;
 		public EfUnitOfWork(GameOfDronesContext context)
 		{
-			this.context = context;
+			this.Context = context;
 			StatisticRepo = new EfGenericRepository<Statistic>(context.Statistics);
 		}
 
@@ -22,9 +20,11 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Implementations
 			get { return StatisticRepo; }
 		}
 
+		public GameOfDronesContext Context { get; }
+
 		public bool Commit()
 		{
-			return context.SaveChanges() != 0;
+			return Context.SaveChanges() != 0;
 		}
 
 		#region IDisposable
@@ -32,7 +32,7 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Implementations
 		{
 			if (!this.disposed && disposing)
 			{
-				context.Dispose();
+				Context.Dispose();
 			}
 
 			this.disposed = true;
@@ -50,7 +50,7 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Implementations
 			var p1 = parameter1 as SqlParameter;
 			var p2 = parameter2 as SqlParameter;
 
-			context.Database.ExecuteSqlCommand(sqlQuery, p1, p2);
+			Context.Database.ExecuteSqlCommand(sqlQuery, p1, p2);
 		}
 	}
 }

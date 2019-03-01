@@ -7,5 +7,6 @@ namespace UruIt.GameOfDrones.Persistence.Repository_Interfaces
 		IGenericRepository<Statistic> StatisticRepository { get; }
 		void ExecuteSql(string sqlQuery, object parameter1, object parameter2);
 		bool Commit();
+		GameOfDronesContext Context { get; }
 	}
 }
